@@ -1,0 +1,32 @@
+<div class='content'>
+
+    <!-- p>the message : {{message}}</p-->
+    <button ng-click="order='name'">orderBy Name</button> <!--set order variable to name on click-->
+    <button ng-click="order='belt'">orderBy Belt</button> <!--set order variable to belt on click-->
+    <input type="text" ng-model="search" placeholder="Search for Ninjas"/>
+    <ul>
+        <li ng-repeat="ninja in Ninjas | orderBy: order | filter: search" ng-show="ninja.available">
+          <img ng-src="{{ninja.thumb}}"  ng-show="ninja.thumb" style="margin: -12px 10px 0 0; folat left; width: 50px;" /> <!-- Make sure the sure is not loaded before angular app -->
+          <!--  ng-show="{{ninja.thumb}}" Display image only if ninja have image -->
+          <h3>{{ninja.name}} - {{ninja.rate | currency}}</h3>
+          <div class="remove" ng-click="removeNinja(ninja)">x</div> <!--removeNinja  function must be part of $scope of angular app-->
+          <span class="belt" style="background: {{ninja.belt}}">{{ninja.belt}} belt</span>
+
+        </li>
+        <!-- ng-show ng-show=”<condition in ng-show>”  Displays element if condition in ng-show is true ng-show -->
+
+        <!-- ng-hide ng-hide=”<condition in ng-hide>”  hide element if condition in ng-hide is true ng-hide -->
+        <!--li ng-repeat="ninja in Ninjas | orderBy: '-name' | filter: search" ng-hide="ninja.available"> {{ninja.name}} - {{ninja.rate | currency}} </li-->
+
+        <!--currency Filter  applied to rate displays rate as currency  -->
+        <!--Filter orderBy: '-name' orders ninja in descending order by name -->
+        <!--Filter filter:search  Filter results bases on value in search model -->
+    </ul>
+
+    <form ng-submit="AddNinja()"> <!--AddNinja  Defined in controlled will be called  -->
+      <input type="text" placeholder="name" ng-model="newninja.name"/>
+      <input type="text" placeholder="belt" ng-model="newninja.belt"/>
+      <input type="text" placeholder="rate" ng-model="newninja.rate"/>
+      <input type="submit" value="add new Ninja">
+    </form>
+</div>

@@ -1,0 +1,22 @@
+<!-- based on
+https://www.youtube.com/watch?v=R_okHflzgm0&list=PL4cUxeGkcC9gsJS5QgFT2IvWIX78dV3_v&index=18
+Custom Directives
+
+
+-->
+<!DOCTYPE html>
+<!--AppMyNinja  is defined in  app\app.js -->
+<html lang="en" ng-app='AppMyNinja'> <!-- everything inside ng-app directive is controlled by angular    -->
+  <head>
+    <title>TheNetNinja Angular Playlist</title>
+    <link href="content\css\styles.css" rel="stylesheet" type="text/css" />
+    <script src="app\lib\angular.min.js"> </script>
+    <script src="app\lib\angular-route.min.js"> </script>
+
+    <script src="app\app.js"> </script> <!--AppMyNinja  is defined in  app\app.js -->
+  </head>
+  <body >
+    <header ng-include="'header.html'"></header>
+    <main ng-view></main>
+  </body>
+</html>
