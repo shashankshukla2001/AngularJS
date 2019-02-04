@@ -105,11 +105,7 @@ class MyNinja
 
         //var length=$scope.ninjas.length;
         var length=4;
-
         random=random*length;
-        console.log($scope);
-
-
         $scope.random=Math.floor(random);
       }
 
