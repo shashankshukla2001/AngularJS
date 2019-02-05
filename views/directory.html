@@ -4,7 +4,7 @@
     <button ng-click="order='name'">orderBy Name</button> <!--set order variable to name on click-->
     <button ng-click="order='belt'">orderBy Belt</button> <!--set order variable to belt on click-->
     <input type="text" ng-model="search" placeholder="Search for Ninjas"/>
-    <ul>
+    <ul id='ninja-list'>
         <li ng-repeat="ninja in Ninjas | orderBy: order | filter: search" ng-show="ninja.available">
           <img ng-src="{{ninja.thumb}}"  ng-show="ninja.thumb" style="margin: -12px 10px 0 0; folat left; width: 50px;" /> <!-- Make sure the sure is not loaded before angular app -->
           <!--  ng-show="{{ninja.thumb}}" Display image only if ninja have image -->

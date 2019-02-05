@@ -4,8 +4,9 @@ class MyNinja
 {
     constructor()
     {
-      this.MyNinjaApp=angular.module('AppMyNinja',['ngRoute']);//.'AppMyNinja' is name of the module
+      this.MyNinjaApp=angular.module('AppMyNinja',['ngRoute','ngAnimate']);//.'AppMyNinja' is name of the module
       //['ngRoute'] ngRoute  is the dependency and the dependency file is 'app\lib\angular-route.min.js'
+      //ngAnimate is the dependency and the dependency file is 'app\lib\angular-animate.min.js'
       self=this;
 
       this.MyNinjaApp.config(['$routeProvider',function($routeProvider) {self.config($routeProvider);}]);

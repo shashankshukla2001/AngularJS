@@ -122,3 +122,45 @@ main{
   cursor: pointer;
   margin-left: 10px;
 }
+
+/*ngAnimate CSS-based Animations */
+/* The starting CSS styles for the enter animation */
+main.ng-enter { /* main tag   <main ng-view></main> of index.html is animated*/
+  transition:0.5s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+main.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+#ninja-list li.ng-enter
+{
+  transition:0.5s linear all;
+  opacity:0;
+  transform: translateY(20px);
+}
+
+
+#ninja-list li.ng-enter.ng-enter-active
+{
+  opacity:1;
+  transform: translateY(0);
+}
+
+
+
+#ninja-list li.ng-leave
+{
+  transition:0.2s linear all;
+  opacity:1;
+  transform: translateX(0);
+}
+
+
+#ninja-list li.ng-leave.ng-leave-active
+{
+  opacity:0;
+  transform: translateX(-100%);
+}
