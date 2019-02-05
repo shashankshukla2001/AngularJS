@@ -82,6 +82,7 @@ class MyNinja
 
       this.routeProvider.when('/home',{templateUrl:'views/home.html',controller:'Ninjacontroler'});
       this.routeProvider.when('/directory',{templateUrl:'views/directory.html',controller:'Ninjacontroler'});
+      this.routeProvider.when('/contact',{templateUrl:'views/contact.html'});
       //everything within views/directory.html  is controlled by Ninjacontroler
 
       this.routeProvider.otherwise({redirectTo:'/home'});

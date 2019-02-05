@@ -1,0 +1,10 @@
+<div class="content">
+  {{contact}}
+  <form name="contactForm" novalidate>
+    <input type="text" name="name" placeholder="name" ng-model='contact.nmae' rg-required='true'/>
+    <input type="email" name="Email" placeholder="Email" ng-model='contact.email' rg-required='true'/>
+    <textarea name="message" placeholder="Your Message" ng-model='contact.message' rg-required='true' ></textarea>
+    <input type="submit"  value="Send"/>
+  </form>
+
+</div>

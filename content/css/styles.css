@@ -168,7 +168,12 @@ main.ng-enter.ng-enter-active {
 
 
 #ninja-list li.ng-leave-stagger
-{
+{ /*Animate one after another */
   transition-delay:0.2s;
   transition-duration: 0;
+}
+
+input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched
+{
+  border: 2px solid red;
 }
