@@ -37,6 +37,8 @@ class MyNinja
       this.scope.removeNinja=function(ninja) {self.removeNinja(ninja);};
       this.scope.AddNinja=function() {self.AddNinja();};
 
+      this.scope.removeAll=function() {self.removeAll();};
+
       this.scope.message='hey you all ';
       /*
       this.scope.Ninjas=[{name:'yoshi', belt:'Green', rate:50,available: true,thumb:'content/img/yoshi.jpg' },
@@ -124,6 +126,11 @@ class MyNinja
       var NinjaIndex=this.scope.Ninjas.indexOf(ninja);
       this.scope.Ninjas.splice(NinjaIndex,1);
       this.logger('removeNinja()');
+    }
+    removeAll()
+    {
+      this.scope.Ninjas=[];
+      this.logger('removeAll');
     }
 
     AddNinja()
