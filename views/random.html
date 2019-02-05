@@ -1,3 +1,5 @@
-
-<h1>{{title}}</h1>
-<img src="{{ninjas[random].thumb}}"  style="margin: -12px 10px 0 0; folat left; width: 50px;"/>
+<div style="text-align: center" >
+  <h1>{{title}}</h1>
+  <div ng-transclude><!-- everything within customer  directive 'randomNinja' will be displayed here  --></div>
+  <img  src="{{ninjas[random].thumb}}"  style="margin: -12px 10px 0 0; folat left; width: 50px; padding-top:10px"/>
+</div>

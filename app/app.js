@@ -8,10 +8,6 @@ class MyNinja
       //['ngRoute'] ngRoute  is the dependency and the dependency file is 'app\lib\angular-route.min.js'
       self=this;
 
-
-
-
-
       this.MyNinjaApp.config(['$routeProvider',function($routeProvider) {self.config($routeProvider);}]);
       //route is like urls all link(urls , along with their controllers  and  temples should be  declared within route
 
@@ -98,7 +94,11 @@ class MyNinja
       ControlerObj['restrict']='EA';
       ControlerObj['scope' ]={title:'=', ninjas:'='};
       ControlerObj['templateUrl']='views/random.html';
+      ControlerObj['transclude']=true; //do not replace every thin nested under customer directive 'randomNinja' with html  from template
+      //fro transclude to work <ng-transclude> directive have to be used in  templateUrl
+      ControlerObj['replace']=true; //'randomNinja' tag (directive tag ) is replace by html from templateUrl
       ControlerObj['controller']=random; //function ($scope) {};
+
 
       function random ($scope) { //response http responses received by request
         var random=Math.random();
@@ -106,6 +106,7 @@ class MyNinja
         //var length=$scope.ninjas.length;
         var length=4;
         random=random*length;
+        console.log($scope);
         $scope.random=Math.floor(random);
       }
 
