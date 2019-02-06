@@ -9,8 +9,9 @@ class MyNinja
       //ngAnimate is the dependency and the dependency file is 'app\lib\angular-animate.min.js'
       self=this;
 
-      this.MyNinjaApp.config(['$routeProvider',function($routeProvider) {self.config($routeProvider);}]);
+      this.MyNinjaApp.config(['$routeProvider', '$locationProvider',function($routeProvider,$locationProvider) {self.config($routeProvider,$locationProvider);}]);
       //route is like urls all link(urls , along with their controllers  and  temples should be  declared within route
+      //$locationProvider Is to use url in header without #
 
 
       this.MyNinjaApp.directive('randomNinja',[function() {return self.randomNinja();}]);
@@ -90,7 +91,7 @@ class MyNinja
 
     }
 
-    config($routeProvider)
+    config($routeProvider,$locationProvider)
     {
       /*
       this function is like is like urls all link(urls , along with their controllers  and  temples should be  declared within route
@@ -99,6 +100,7 @@ class MyNinja
 
       //this.routeProvider.when('/home',{templateUrl:'views/home.html'}).otherwise({redirectTo:'/home'})
 
+      $locationProvider.html5Mode(true);//Is to use url in header without #
       this.routeProvider.when('/home',{templateUrl:'views/home.html',controller:'Ninjacontroler'});
       this.routeProvider.when('/directory',{templateUrl:'views/directory.html',controller:'Ninjacontroler'});
       this.routeProvider.when('/contact',{templateUrl:'views/contact.html ',controller:'ContactControler'},);
