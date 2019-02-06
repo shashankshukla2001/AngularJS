@@ -22,6 +22,11 @@ class MyNinja
       //$scope.removeNinja=this.removeNinja()
       //this.AppObject.controller('Ninjacontroler',this.Message) //Gives error this.loger is not defined
 
+      this.MyNinjaApp.controller('ContactControler',['$scope','$location' ,function($scope,$location ) {self.ContactControler($scope,$location);}]);
+      //self/this.controller is like constructor of angular and  $scope is like “this” of angular app  all  function and variable of app should be declares here
+      //$scope.removeNinja=this.removeNinja()
+      //this .AppObject.controller('Ninjacontroler',this.Message) //Gives error this.loger is not defined
+
     }
 
     controller($scope,$http)
@@ -29,8 +34,8 @@ class MyNinja
       /*
       this function is like constructor of angular and  $scope is like “this” of angular app  all  function and variable of app shod be declares here
       */
-      self=this;
       this.scope=$scope; //always create a this.scope so the scope has not to be explicitly passed  to every function that is associated with angular app
+      self=this;
       this.http=$http
       this.getNinjas($http);
 
@@ -49,6 +54,20 @@ class MyNinja
       //this.logger('controller()');
       //*
 
+
+    }
+
+    ContactControler($scope,$location)
+    {
+      self=this;
+
+      $scope.sendMessage=function() {self.sendMessage($scope,$location);};
+
+
+    }
+    sendMessage($scope,$location)
+    {
+      $location.path('/contact-success');//Redetect to “contact-success” on successful submission of the form
 
     }
 
@@ -82,7 +101,8 @@ class MyNinja
 
       this.routeProvider.when('/home',{templateUrl:'views/home.html',controller:'Ninjacontroler'});
       this.routeProvider.when('/directory',{templateUrl:'views/directory.html',controller:'Ninjacontroler'});
-      this.routeProvider.when('/contact',{templateUrl:'views/contact.html'});
+      this.routeProvider.when('/contact',{templateUrl:'views/contact.html ',controller:'ContactControler'},);
+      this.routeProvider.when('/contact-success',{templateUrl:'views/contact-success.html',controller:'ContactControler'},);
       //everything within views/directory.html  is controlled by Ninjacontroler
 
       this.routeProvider.otherwise({redirectTo:'/home'});
